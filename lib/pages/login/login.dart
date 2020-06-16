@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lembrete/db/DatabaseUsuario.dart';
-import 'package:lembrete/helpers/console.dart';
-import 'package:lembrete/models/usuarioModel.dart';
+import 'package:lembrete/components/login/background.dart';
+import 'package:lembrete/components/login/button.dart';
+import 'package:lembrete/helpers/system.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -10,33 +10,18 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  myFunction() {
-    UsuarioModel user = UsuarioModel(
-        id: 1, nome: 'admin', email: 'admin@email.com', senha: '123');
-    DatabaseHelper db = DatabaseHelper();
-
-    db.insertUsuario(user);
-
-    db.getAllUsuario().then((lista) {
-      print(lista);
-    });
-  }
-
-  consoleUsuairo() {
-    DatabaseHelper db = DatabaseHelper();
-    db.getAllUsuario().then((lista) {
-      exibirListaUsuario(lista, 'Usuários');
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    consoleUsuairo();
-    return Scaffold(
-      body: Container(
-        child: Center(
-          child: Text('</>'),
-        ),
+    return Background(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text('Minha página de login'),
+          Button(
+            texto: 'Entrar',
+            funcao: () {},
+          ),
+        ],
       ),
     );
   }
