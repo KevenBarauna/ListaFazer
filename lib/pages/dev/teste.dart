@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lembrete/components/geral/button.dart';
 import 'package:lembrete/db/DatabaseUsuario.dart';
 import 'package:lembrete/helpers/console.dart';
 import 'package:lembrete/models/usuarioModel.dart';
@@ -11,12 +12,7 @@ class Teste extends StatefulWidget {
 
 class _TesteState extends State<Teste> {
   myFunction() {
-    UsuarioModel user = UsuarioModel(
-        id: 1, nome: 'admin', email: 'admin@email.com', senha: '123');
     DatabaseHelper db = DatabaseHelper();
-
-    db.insertUsuario(user);
-
     db.getAllUsuario().then((lista) {
       print(lista);
     });
@@ -31,12 +27,22 @@ class _TesteState extends State<Teste> {
 
   @override
   Widget build(BuildContext context) {
-    consoleUsuairo();
+    // consoleUsuairo();
     return Scaffold(
-      body: Container(
-        child: Center(
-          child: Text('</>'),
-        ),
+      body: ListView(
+        children: <Widget>[
+          Center(
+              child: Container(
+            margin: EdgeInsets.only(top: 240, bottom: 50),
+            child: Text('</>'),
+          )),
+          Button(
+            texto: 'Contar usuário',
+            funcao: () {
+              myFunction();
+            },
+          ),
+        ],
       ),
     );
   }

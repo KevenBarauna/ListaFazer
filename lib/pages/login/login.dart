@@ -4,6 +4,7 @@ import 'package:lembrete/components/login/background.dart';
 import 'package:lembrete/components/geral/button.dart';
 import 'package:lembrete/components/login/inputTexto.dart';
 import 'package:lembrete/components/login/checkBox.dart';
+import 'package:lembrete/pages/dev/teste.dart';
 
 var nomeUsuario = TextEditingController();
 var senhaUsuario = TextEditingController();
@@ -34,8 +35,8 @@ class _LoginState extends State<Login> {
           Button(
             texto: 'Entrar',
             funcao: () {
-              print(nomeUsuario.text);
-              print(senhaUsuario.text);
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Teste()));
             },
           ),
         ],
