@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lembrete/pages/dev/teste.dart';
 import 'package:lembrete/pages/login/login.dart';
 
 void main() {
