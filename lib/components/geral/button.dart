@@ -24,7 +24,7 @@ class Button extends StatelessWidget {
         child: FlatButton(
           color: cor,
           padding: EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-          onPressed: () {},
+          onPressed: funcao,
           child: Text(
             texto,
             style: TextStyle(color: corTexto),

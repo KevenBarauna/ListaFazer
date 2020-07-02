@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CheckBox extends StatelessWidget {
+bool valueCheck;
+
+class CheckBox extends StatefulWidget {
   final bool value;
   final Function funcao;
   final String texto;
@@ -16,6 +18,11 @@ class CheckBox extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _CheckBoxState createState() => _CheckBoxState();
+}
+
+class _CheckBoxState extends State<CheckBox> {
+  @override
   Widget build(BuildContext context) {
     Size tela = MediaQuery.of(context).size;
     return Container(
@@ -24,8 +31,15 @@ class CheckBox extends StatelessWidget {
       child: ClipRRect(
         child: Row(
           children: <Widget>[
-            Checkbox(value: value, onChanged: funcao),
-            Text(texto),
+            Checkbox(
+              value: valueCheck,
+              onChanged: (bool resp) {
+                setState(() {
+                  valueCheck = resp;
+                });
+              },
+            ),
+            Text(widget.texto),
           ],
         ),
       ),

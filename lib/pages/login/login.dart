@@ -7,6 +7,7 @@ import 'package:lembrete/components/login/checkBox.dart';
 
 var nomeUsuario = TextEditingController();
 var senhaUsuario = TextEditingController();
+bool lembrarUsuario = true;
 
 class Login extends StatefulWidget {
   @override
@@ -27,12 +28,15 @@ class _LoginState extends State<Login> {
           InputTexto(obscure: false, controller: nomeUsuario, texto: 'Nome'),
           InputTexto(obscure: true, controller: senhaUsuario, texto: 'Senha'),
           CheckBox(
-            value: false,
+            value: lembrarUsuario,
             texto: 'Lembrar de mim',
           ),
           Button(
             texto: 'Entrar',
-            funcao: () {},
+            funcao: () {
+              print(nomeUsuario.text);
+              print(senhaUsuario.text);
+            },
           ),
         ],
       ),
